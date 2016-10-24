@@ -10,5 +10,6 @@ import com.baomidou.framework.service.ISuperService;
  */
 public interface IUserService extends ISuperService<User> {
 
+	boolean deleteAll();
 
 }

@@ -14,6 +14,8 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import com.baomidou.mybatisplus.MybatisConfiguration;
+import com.baomidou.mybatisplus.MybatisXMLLanguageDriver;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 
@@ -60,6 +62,9 @@ public class MybatisPlusConfig {
 		if (!ObjectUtils.isEmpty(this.interceptors)) {
 			mybatisPlus.setPlugins(this.interceptors);
 		}
+		MybatisConfiguration mc = new MybatisConfiguration();
+		mc.setDefaultScriptingLanguage(MybatisXMLLanguageDriver.class);
+		mybatisPlus.setConfiguration(mc);
 		if (this.databaseIdProvider != null) {
 			mybatisPlus.setDatabaseIdProvider(this.databaseIdProvider);
 		}

@@ -42,6 +42,12 @@ public class User implements Serializable {
 		this.testType = testType;
 	}
 
+	public User(String name, Integer age, Integer testType) {
+		this.name = name;
+		this.age = age;
+		this.testType = testType;
+	}
+
 	public Long getId() {
 		return this.id;
 	}

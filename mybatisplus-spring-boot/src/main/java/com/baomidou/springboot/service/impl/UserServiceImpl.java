@@ -15,4 +15,9 @@ import com.baomidou.springboot.service.IUserService;
 @Service
 public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implements IUserService {
 
+	@Override
+	public boolean deleteAll() {
+		return retBool(baseMapper.deleteAll());
+	}
+
 }

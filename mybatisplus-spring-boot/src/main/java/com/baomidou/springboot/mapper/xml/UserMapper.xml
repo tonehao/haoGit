@@ -7,4 +7,7 @@
 		test_id AS testId, name, age, test_type AS testType, role, phone
 	</sql>
 
+	<delete id="deleteAll">
+		DELETE FROM USER
+	</delete>
 </mapper>

@@ -21,8 +21,14 @@ public class UserController {
 	@RequestMapping("/test1")
 	public User test1() {
 		System.err.println("删除一条数据：" + userService.deleteById(1L));
+		System.err.println("deleteAll：" + userService.deleteAll());
 		System.err.println("插入一条数据：" + userService.insertSelective(new User(1L, "张三", 17, 1)));
-		System.err.println("查询：" + userService.selectById(1L).toString());
+		User user = new User("张三", 17, 1);
+		boolean result = userService.insert(user);
+		//自动回写的ID
+		Long id = user.getId();
+		System.err.println("插入一条数据：" + result + ", 插入信息：" + user.toString());
+		System.err.println("查询：" + userService.selectById(id).toString());
 		System.err.println("更新一条数据：" + userService.updateSelectiveById(new User(1L, "三毛", 18, 2)));
 		return userService.selectById(1L);
 	}
