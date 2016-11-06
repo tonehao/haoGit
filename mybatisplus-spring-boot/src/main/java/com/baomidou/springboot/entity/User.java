@@ -2,6 +2,7 @@ package com.baomidou.springboot.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 
@@ -10,10 +11,8 @@ import com.baomidou.mybatisplus.annotations.TableId;
  * 用户表
  *
  */
-public class User implements Serializable {
-
-	@TableField(exist = false)
-	private static final long serialVersionUID = 1L;
+@SuppressWarnings("serial")
+public class User extends Model<User> {
 
 	/** 主键ID */
 	@TableId(value = "test_id")
@@ -100,5 +99,10 @@ public class User implements Serializable {
 	public String toString() {
 		return "User{" + "id=" + id + ", name='" + name + '\'' + ", age=" + age + ", testType=" + testType + ", role="
 				+ role + ", phone=" + phone + '}';
+	}
+
+	@Override
+	protected Serializable getPrimaryKey() {
+		return id;
 	}
 }

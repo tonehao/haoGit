@@ -2,7 +2,7 @@ package com.baomidou.springboot.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.baomidou.framework.service.impl.SuperServiceImpl;
+import com.baomidou.framework.service.impl.ServiceImpl;
 import com.baomidou.springboot.entity.User;
 import com.baomidou.springboot.mapper.UserMapper;
 import com.baomidou.springboot.service.IUserService;
@@ -13,7 +13,7 @@ import com.baomidou.springboot.service.IUserService;
  *
  */
 @Service
-public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
 	@Override
 	public boolean deleteAll() {
