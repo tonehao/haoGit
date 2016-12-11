@@ -8,6 +8,13 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.springboot.entity.User;
 import com.baomidou.springboot.service.IUserService;
 
+/**
+ * 
+ * 代码生成器，参考源码测试用例：
+ * 
+ * /mybatis-plus/src/test/java/com/baomidou/mybatisplus/test/generator/MysqlGenerator.java
+ *
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -26,7 +33,7 @@ public class UserController {
 		System.err.println("查询插入结果：" + user.selectById().toString());
 		user.setName("mybatis-plus-ar");
 		System.err.println("更新：" + user.updateById());
-		return user.selectPage(new Page<User>(0, 12));
+		return user.selectPage(new Page<User>(0, 12), null);
 	}
 
 	/**

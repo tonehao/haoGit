@@ -102,7 +102,9 @@ public class User extends Model<User> {
 	}
 
 	@Override
-	protected Serializable getPrimaryKey() {
+	protected Serializable pkVal() {
+		// TODO Auto-generated method stub
 		return id;
 	}
+
 }
