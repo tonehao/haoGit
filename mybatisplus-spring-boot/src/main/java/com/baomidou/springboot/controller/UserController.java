@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.springboot.entity.User;
 import com.baomidou.springboot.service.IUserService;
@@ -51,6 +52,11 @@ public class UserController {
 		System.err.println("插入一条数据：" + result + ", 插入信息：" + user.toString());
 		System.err.println("查询：" + userService.selectById(id).toString());
 		System.err.println("更新一条数据：" + userService.updateById(new User(1L, "三毛", 18, 2)));
+		for(int i=0;i<5;++i){
+			userService.insert(new User(Long.valueOf(100+i), "张三"+i, 17+i, 1));
+		}
+		Page<User> userListPage = userService.selectPage(new Page<User>(1,5), new EntityWrapper<>(new User()));
+		System.err.println("total="+userListPage.getTotal()+", current list size="+userListPage.getRecords().size());
 		return userService.selectById(1L);
 	}
 
