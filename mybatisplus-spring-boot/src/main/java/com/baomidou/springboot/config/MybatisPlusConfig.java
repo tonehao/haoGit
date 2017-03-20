@@ -68,11 +68,15 @@ public class MybatisPlusConfig {
 		}
 		// MP 全局配置，更多内容进入类看注释
 		GlobalConfiguration globalConfig = new GlobalConfiguration();
-		globalConfig.setDbType(DBType.MYSQL.name());
+		globalConfig.setDbType(DBType.MYSQL.name());//数据库类型
 		// ID 策略 AUTO->`0`("数据库ID自增") INPUT->`1`(用户输入ID") ID_WORKER->`2`("全局唯一ID") UUID->`3`("全局唯一ID")
 		globalConfig.setIdType(2);
+		//MP 属性下划线 转 驼峰 , 如果原生配置 mc.setMapUnderscoreToCamelCase(true) 开启，该配置可以无。
+		//globalConfig.setDbColumnUnderline(true);
 		mybatisPlus.setGlobalConfig(globalConfig);
 		MybatisConfiguration mc = new MybatisConfiguration();
+		// 对于完全自定义的mapper需要加此项配置，才能实现下划线转驼峰
+		//mc.setMapUnderscoreToCamelCase(true);
 		mc.setDefaultScriptingLanguage(MybatisXMLLanguageDriver.class);
 		mybatisPlus.setConfiguration(mc);
 		if (this.databaseIdProvider != null) {
