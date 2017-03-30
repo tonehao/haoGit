@@ -17,6 +17,7 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<mybatis-starter-version>1.2.0</mybatis-starter-version>
 		<fastjson.version>1.2.24</fastjson.version>
+		<mybatis.plus.version>2.0.5</mybatis.plus.version>
 	</properties>
 	
 	<dependencies>
@@ -44,7 +45,7 @@
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus</artifactId>
-			<version>2.0.2</version>
+			<version>${mybatis.plus.version}</version>
 		</dependency>
 
 		<!-- JUnit test dependency -->
