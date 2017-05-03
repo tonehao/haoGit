@@ -24,6 +24,7 @@ CREATE TABLE `user` (
   `name` varchar(30) COLLATE utf8_bin DEFAULT NULL COMMENT '名称',
   `age` int(11) DEFAULT NULL COMMENT '年龄',
   `test_type` int(11) DEFAULT '0' COMMENT '测试下划线字段命名类型',
+  `test_date` DATETIME NULL DEFAULT NULL,
   `role` bigint(20) DEFAULT NULL,
   `phone` varchar(64) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`test_id`)

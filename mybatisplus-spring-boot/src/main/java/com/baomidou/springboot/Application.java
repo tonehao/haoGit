@@ -1,20 +1,22 @@
 package com.baomidou.springboot;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
-@MapperScan("com.baomidou.springboot.mapper*")
+import com.baomidou.springboot.config.SpringConfig;
+
 @SpringBootApplication
+@Import(value={SpringConfig.class})
 public class Application {
 
 	/**
 	 * <p>
 	 * 测试 RUN
 	 * <br>
-	 * 1、http://localhost:8080/user/test1<br>
-	 * 2、http://localhost:8080/user/test2<br>
+	 * 1、http://localhost:8080/user/test<br>
+	 * 2、http://localhost:8080/user/test1<br>
 	 * </p>
 	 */
 	public static void main(String[] args) {

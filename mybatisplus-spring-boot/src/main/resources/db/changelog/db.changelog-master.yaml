@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: baomidou
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: test_id
+                  type: bigint(20)
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: int(10)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: test_type
+                  type: int(10)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: test_date
+                  type: datetime
+                  constraints:
+                    nullable: true
+              - column:
+                  name: role
+                  type: bigint(20)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: phone
+                  type: varchar(30)
+                  constraints:
+                    nullable: true

@@ -1,6 +1,7 @@
 package com.baomidou.springboot.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
@@ -24,9 +25,11 @@ public class User extends Model<User> {
 	/** 年龄 */
 	private Integer age;
 
-	/** 测试下划线字段命名类型 */
 	@TableField(value = "test_type")
 	private Integer testType;
+	
+	@TableField(value = "test_date")
+	private Date testDate;
 
 	private Long role;
 	private String phone;
@@ -95,15 +98,22 @@ public class User extends Model<User> {
 		this.phone = phone;
 	}
 
+	public Date getTestDate() {
+		return testDate;
+	}
+
+	public void setTestDate(Date testDate) {
+		this.testDate = testDate;
+	}
+
 	@Override
 	public String toString() {
-		return "User{" + "id=" + id + ", name='" + name + '\'' + ", age=" + age + ", testType=" + testType + ", role="
-				+ role + ", phone=" + phone + '}';
+		return "User [id=" + id + ", name=" + name + ", age=" + age + ", testType=" + testType + ", testDate="
+				+ testDate + ", role=" + role + ", phone=" + phone + "]";
 	}
 
 	@Override
 	protected Serializable pkVal() {
-		// TODO Auto-generated method stub
 		return id;
 	}
 

@@ -1,17 +1,24 @@
 package com.baomidou.springboot.config;
 
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.plugin.Interceptor;
+import org.h2.Driver;
+import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
 import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
@@ -24,10 +31,12 @@ import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 
 @Configuration
 @EnableConfigurationProperties(MybatisProperties.class)
+@MapperScan("com.baomidou.springboot.mapper*")
 public class MybatisPlusConfig {
-	@Autowired
-	private DataSource dataSource;
 
+	@Autowired
+	Environment env;
+	
 	@Autowired
 	private MybatisProperties properties;
 
@@ -39,6 +48,17 @@ public class MybatisPlusConfig {
 
 	@Autowired(required = false)
 	private DatabaseIdProvider databaseIdProvider;
+	
+	/*@Bean
+	@ConditionalOnMissingBean
+    public DataSource dataSource() throws SQLException {
+		SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+		dataSource.setDriver(new Driver());
+        dataSource.setUrl("jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
+        dataSource.setUsername("sa");
+        dataSource.setPassword("");
+        return dataSource;
+    }*/
 	
 	/**
 	 *	 mybatis-plus分页插件
@@ -55,7 +75,7 @@ public class MybatisPlusConfig {
 	 * @return
 	 */
 	@Bean
-	public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() {
+	public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean(DataSource dataSource) {
 		MybatisSqlSessionFactoryBean mybatisPlus = new MybatisSqlSessionFactoryBean();
 		mybatisPlus.setDataSource(dataSource);
 		mybatisPlus.setVfs(SpringBootVFS.class);

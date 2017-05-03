@@ -9,26 +9,15 @@
 
 # 简介 | Intro
 
-Mybatis 增强工具包 - 只做增强不做改变，简化`CRUD`操作
+Mybatis Plus - Spring Boot Demo
 
-> 技术讨论 QQ 群 492238239[（有钱的捧个钱场【点击捐赠】, 没钱的捧个人场）](http://git.oschina.net/uploads/images/2015/1222/211207_0acab44e_12260.png)
+* boot version: 1.5.2.RELEASE
+* mp version: 2.0.7
+* database: h2(boot默认数据库，如需修改，请在application.properties中查看mysql配置)
 
-# 优点 | Advantages
+> 技术讨论 QQ 群 576493122[（有钱的捧个钱场【点击捐赠】, 没钱的捧个人场）](http://git.oschina.net/uploads/images/2015/1222/211207_0acab44e_12260.png)
 
-- **纯正血统**：完全继承原生 `Mybatis` 的所有特性
-- **最少依赖**：仅仅依赖`Mybatis`以及`Mybatis-Spring`
-- **性能损耗小**：启动即会自动注入基本CURD ，性能无损耗，直接面向对象操作
-- **自动热加载**：Mapper对应的xml可以热加载，大大减少重启Web服务器时间，提升开发效率
-- **自动生成代码**：包含自动生成代码类以及Maven插件，通过少量配置，即可快速生成Mybatis对应的xml、mapper、entity、service、serviceimpl层代码，减少开发时间
-- **自定义操作**：支持自定义Sql注入，实现个性化操作
-- **自定义转义规则**：支持数据库关键词（例如：`order`、`key`等）自动转义，支持自定义关键词
-- **多种主键策略**：支持多达4种主键策略，可自由配置，若无将会自动填充，更有充满黑科技的`分布式全局唯一ID生成器`
-- **无缝分页插件**：基于Mybatis物理分页，无需关心具体操作，等同于编写基本`selectList`查询
-- **性能分析**：自带Sql性能分析插件，开发测试时，能有效解决慢查询
-- **全局拦截**：提供全表`delete`、`update`操作智能分析阻断
-- **避免Sql注入**：内置Sql注入内容剥离器，预防Sql注入攻击
-
-# 文档 | Documentation
+# MP文档 | Documentation
 
 [中文](http://mp.baomidou.com/) | [English](http://mp.baomidou.com/en/)
 
@@ -56,10 +45,6 @@ Mybatis 增强工具包 - 只做增强不做改变，简化`CRUD`操作
 </dependency>
 ```
 
-# 结构目录 | Architecture
-
-![项目结构说明](http://git.oschina.net/uploads/images/2016/0821/161516_58956b85_12260.png "项目结构说明")
-
 # 其他开源项目 | Other Project
 
 - [基于Cookie的SSO中间件 Kisso](http://git.oschina.net/baomidou/kisso)
@@ -79,6 +64,3 @@ Mybatis 增强工具包 - 只做增强不做改变，简化`CRUD`操作
 
 ![捐赠 mybatis-plus](http://git.oschina.net/uploads/images/2015/1222/211207_0acab44e_12260.png "支持一下mybatis-plus")
 
-# 关注我 | About Me
-
-![程序员日记](http://git.oschina.net/uploads/images/2016/0121/093728_1bc1658f_12260.png "程序员日记")
