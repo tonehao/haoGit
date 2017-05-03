@@ -1,9 +1,12 @@
 package com.baomidou.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.springboot.entity.User;
@@ -75,6 +78,21 @@ public class UserController {
 	@RequestMapping("/test3")
 	public Page<User> test3() {
 		return userService.selectPage(new Page<User>(0, 12));
+	}
+	
+	@PutMapping("/add")
+	public Object addUser(){
+		User user = new User("张三", 17, 1);
+		JSONObject result = new JSONObject();
+		result.put("result", userService.insert(user));
+		return result;
+	}
+	
+	@GetMapping("/selectsql")
+	public Object getUserBySql() {
+		JSONObject result = new JSONObject();
+		result.put("records", userService.selectListBySQL());
+		return result;
 	}
 
 }

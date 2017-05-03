@@ -3,34 +3,25 @@ package com.baomidou.springboot.test;
 import static com.jayway.restassured.RestAssured.given;
 
 import org.hamcrest.Matcher;
-import org.junit.Before;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.internal.matchers.Equals;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.springboot.Application;
-import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.matcher.ResponseAwareMatcher;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.response.ValidatableResponse;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)   //1.
 @SpringBootTest(classes = Application.class, webEnvironment=WebEnvironment.RANDOM_PORT )   // 2.SpringBoot入口类,配置起server随机端口
-public class RestTest {
+public class RestTest extends TestBase{
 
-	@Value("${local.server.port}")   //3
-    int port;
-
-    @Before
-    public void doBefore(){
-        RestAssured.port = port;//4: 告诉restAssured使用哪个端口来访问
-    }
-    
     @Test
     public void postTest(){
         JSONObject parm = new JSONObject();
@@ -51,8 +42,21 @@ public class RestTest {
         ;
         JSONObject json = JSONObject.parseObject(response.extract().asString());//获取返回的json数据(2)
         //自己写一些代码
-        System.out.println(json);
-        
+        System.err.println(json);
+    }
+    
+    @Test
+    public void testGet(){
+    	given().contentType("application/json").request().when().put("/user/add").then();
+    	
+    	ValidatableResponse response = (ValidatableResponse) given().contentType("application/json")
+    	        .request()
+    	        .when().
+    	        get("/user/selectsql").then();
+    	JSONObject json = JSONObject.parseObject(response.extract().asString());//获取返回的json数据(2)
+        //自己写一些代码
+        System.err.println(json);
+        Assert.assertNotNull(json.get("records"));
     }
 }
 

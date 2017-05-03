@@ -1,24 +1,19 @@
 package com.baomidou.springboot.config;
 
-import java.sql.SQLException;
-
 import javax.sql.DataSource;
 
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.plugin.Interceptor;
-import org.h2.Driver;
 import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
 import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
@@ -67,6 +62,7 @@ public class MybatisPlusConfig {
 	public PaginationInterceptor paginationInterceptor() {
 		PaginationInterceptor page = new PaginationInterceptor();
 		page.setDialectType("mysql");
+//		page.setOptimizeType(optimizeType);//分页count优化，需要的话请自行指定
 		return page;
 	}
 	/**
@@ -88,7 +84,7 @@ public class MybatisPlusConfig {
 		}
 		// MP 全局配置，更多内容进入类看注释
 		GlobalConfiguration globalConfig = new GlobalConfiguration();
-		globalConfig.setDbType(DBType.MYSQL.name());//数据库类型
+		globalConfig.setDbType(DBType.H2.name());//数据库类型
 		// ID 策略 AUTO->`0`("数据库ID自增") INPUT->`1`(用户输入ID") ID_WORKER->`2`("全局唯一ID") UUID->`3`("全局唯一ID")
 		globalConfig.setIdType(2);
 		//MP 属性下划线 转 驼峰 , 如果原生配置 mc.setMapUnderscoreToCamelCase(true) 开启，该配置可以无。
@@ -96,7 +92,7 @@ public class MybatisPlusConfig {
 		mybatisPlus.setGlobalConfig(globalConfig);
 		MybatisConfiguration mc = new MybatisConfiguration();
 		// 对于完全自定义的mapper需要加此项配置，才能实现下划线转驼峰
-		//mc.setMapUnderscoreToCamelCase(true);
+		mc.setMapUnderscoreToCamelCase(true);
 		mc.setDefaultScriptingLanguage(MybatisXMLLanguageDriver.class);
 		mybatisPlus.setConfiguration(mc);
 		if (this.databaseIdProvider != null) {
