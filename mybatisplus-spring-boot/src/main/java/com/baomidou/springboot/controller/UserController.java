@@ -1,16 +1,16 @@
 package com.baomidou.springboot.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.springboot.entity.User;
 import com.baomidou.springboot.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 /**
  * 
@@ -27,12 +27,23 @@ public class UserController {
 	private IUserService userService;
 
 	/**
+	 * 分页 PAGE
+	 */
+	@GetMapping("/test")
+	public Page<User> test() {
+		return userService.selectPage(new Page<User>(0, 12));
+	}
+
+	/**
 	 * AR 部分测试
 	 */
-	@RequestMapping("/test")
-	public Page<User> test() {
+	@GetMapping("/test1")
+	public Page<User> test1() {
 		User user = new User("testAr", 0, 1);
 		System.err.println("删除所有：" + user.delete(null));
+		user.setRole(111L);
+		user.setTestDate(new Date());
+		user.setPhone("13111110000");
 		user.insert();
 		System.err.println("查询插入结果：" + user.selectById().toString());
 		user.setName("mybatis-plus-ar");
@@ -43,8 +54,8 @@ public class UserController {
 	/**
 	 * 增删改查 CRUD
 	 */
-	@RequestMapping("/test1")
-	public User test1() {
+	@GetMapping("/test2")
+	public User test2() {
 		System.err.println("删除一条数据：" + userService.deleteById(1L));
 		System.err.println("deleteAll：" + userService.deleteAll());
 		System.err.println("插入一条数据：" + userService.insert(new User(1L, "张三", 17, 1)));
@@ -66,21 +77,13 @@ public class UserController {
 	/**
 	 * 插入 OR 修改
 	 */
-	@RequestMapping("/test2")
-	public User test2() {
+	@GetMapping("/test3")
+	public User test3() {
 		userService.insertOrUpdate(new User(1L, "王五", 19, 3));
 		return userService.selectById(1L);
 	}
 
-	/**
-	 * 分页 PAGE
-	 */
-	@RequestMapping("/test3")
-	public Page<User> test3() {
-		return userService.selectPage(new Page<User>(0, 12));
-	}
-	
-	@PutMapping("/add")
+	@GetMapping("/add")
 	public Object addUser(){
 		User user = new User("张三", 17, 1);
 		JSONObject result = new JSONObject();

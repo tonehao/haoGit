@@ -1,0 +1,42 @@
+#app
+server:
+    port: 8080
+
+#spring
+spring:
+  devtools:
+    restart:
+      enabled: false
+
+  # H2 DATABASE CONFIG
+  datasource:
+    schema: classpath:/db/schema-h2.sql
+    data: classpath:/db/data-h2.sql
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: sa
+    platform: h2
+    initialize: true
+    continue-on-error: true
+  h2:
+    console:
+      enabled: true
+      path: /console
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.baomidou.springboot.entity
+  global-config:
+    id-type: 2
+    field-strategy: 2
+    auto-set-db-type: true
+    db-column-underline: true
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+#logging
+logging:
+  level: warn
