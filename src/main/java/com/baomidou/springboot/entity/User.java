@@ -1,23 +1,15 @@
 package com.baomidou.springboot.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
 
 /**
  * 用户表
  */
 @SuppressWarnings("serial")
-public class User extends Model<User> {
+public class User extends SuperEntity<User> {
 
-    /**
-     * 主键ID
-     */
-    @TableId("test_id")
-    private Long id;
 
     /**
      * 名称
@@ -42,7 +34,7 @@ public class User extends Model<User> {
     }
 
     public User(Long id, String name, Integer age, Integer testType) {
-        this.id = id;
+        this.setId(id);
         this.name = name;
         this.age = age;
         this.testType = testType;
@@ -54,13 +46,6 @@ public class User extends Model<User> {
         this.testType = testType;
     }
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return this.name;
@@ -112,14 +97,9 @@ public class User extends Model<User> {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", name=" + name + ", age=" + age
+        return "User [id=" + this.getId() + ", name=" + name + ", age=" + age
                 + ", testType=" + testType + ", testDate="
                 + testDate + ", role=" + role + ", phone=" + phone + "]";
-    }
-
-    @Override
-    protected Serializable pkVal() {
-        return id;
     }
 
 }
