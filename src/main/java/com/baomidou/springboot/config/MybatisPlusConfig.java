@@ -16,6 +16,8 @@ public class MybatisPlusConfig {
      */
     @Bean
     public PaginationInterceptor paginationInterceptor() {
-        return new PaginationInterceptor();
+        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+        paginationInterceptor.setLocalPage(true);// 开启 PageHelper 的支持
+        return paginationInterceptor;
     }
 }

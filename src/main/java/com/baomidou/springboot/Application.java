@@ -24,10 +24,13 @@ public class Application {
 	 * <br>
 	 * 1、http://localhost:8080/user/test<br>
 	 * 2、http://localhost:8080/user/test1<br>
-	 * 2、http://localhost:8080/user/test2<br>
-	 * 2、http://localhost:8080/user/test3<br>
-	 * 2、http://localhost:8080/user/add<br>
-	 * 2、http://localhost:8080/user/selectsql<br>
+	 * 3、http://localhost:8080/user/test2<br>
+	 * 4、http://localhost:8080/user/test3<br>
+	 * 5、http://localhost:8080/user/add<br>
+	 * 6、http://localhost:8080/user/selectsql<br>
+	 * 7、分页 size 一页显示数量  current 当前页码
+	 * 方式一：http://localhost:8080/user/page?size=1&current=1<br>
+	 * 方式二：http://localhost:8080/user/pagehelper?size=1&current=1<br>
 	 * </p>
 	 */
 	public static void main(String[] args) {
