@@ -20,4 +20,9 @@ public class MybatisPlusConfig {
         paginationInterceptor.setLocalPage(true);// 开启 PageHelper 的支持
         return paginationInterceptor;
     }
+
+    @Bean
+    public TenancyInterceptor tenancyInterceptor() {
+        return new TenancyInterceptor();
+    }
 }
