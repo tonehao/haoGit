@@ -10,6 +10,7 @@ spring:
 
   # H2 DATABASE CONFIG
   datasource:
+    type: com.zaxxer.hikari.HikariDataSource
     schema: classpath:/db/schema-h2.sql
     data: classpath:/db/data-h2.sql
     url: jdbc:h2:mem:testdb

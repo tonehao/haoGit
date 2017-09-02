@@ -11,10 +11,11 @@ import com.baomidou.mybatisplus.annotations.TableId;
 public class SuperEntity<T extends Model> extends Model<T> {
 
     /**
-     * 主键ID
+     * 主键ID , 这里故意演示注解可以无
      */
     @TableId("test_id")
     private Long id;
+    private Long tenantId;
 
     public Long getId() {
         return this.id;
@@ -22,6 +23,14 @@ public class SuperEntity<T extends Model> extends Model<T> {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(Long tenantId) {
+        this.tenantId = tenantId;
     }
 
     @Override

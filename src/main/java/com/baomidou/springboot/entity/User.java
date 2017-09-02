@@ -15,16 +15,16 @@ public class User extends SuperEntity<User> {
      * 名称
      */
     private String name;
-
     /**
      * 年龄
      */
     private Integer age;
-
+    /**
+     * 这里故意演示注解可无
+     */
     @TableField("test_type")
     private Integer testType;
 
-    @TableField("test_date")
     private Date testDate;
 
     private Long role;
