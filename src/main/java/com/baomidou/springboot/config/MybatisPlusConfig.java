@@ -13,8 +13,8 @@ import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.plugins.parser.ISqlParser;
 import com.baomidou.mybatisplus.plugins.parser.ISqlParserFilter;
-import com.baomidou.mybatisplus.plugins.tenant.TenantHandler;
-import com.baomidou.mybatisplus.plugins.tenant.TenantSqlParser;
+import com.baomidou.mybatisplus.plugins.parser.tenant.TenantHandler;
+import com.baomidou.mybatisplus.plugins.parser.tenant.TenantSqlParser;
 import com.baomidou.mybatisplus.toolkit.PluginUtils;
 
 import net.sf.jsqlparser.expression.Expression;
