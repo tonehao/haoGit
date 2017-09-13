@@ -3,6 +3,7 @@ package com.baomidou.springboot.controller;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -117,5 +118,23 @@ public class UserController {
         page.setRecords(userService.selectList(null));
         page.setTotal(PageHelper.freeTotal());//获取总数并释放资源 也可以 PageHelper.getTotal()
         return page;
+    }
+
+
+    /**
+     * 测试事物
+     * http://localhost:8080/user/test_transactional<br>
+     * 访问如下并未发现插入数据说明事物可靠！！<br>
+     * http://localhost:8080/user/test<br>
+     * <br>
+     * 启动  Application 加上 @EnableTransactionManagement 注解其实可无默认貌似就开启了<br>
+     * 需要事物的方法加上 @Transactional 必须的哦！！
+     */
+    @Transactional
+    @GetMapping("/test_transactional")
+    public void testTransactional() {
+        userService.insert(new User(1000L, "测试事物", 16, 3));
+        System.out.println(" 这里手动抛出异常，自动回滚数据");
+        throw new RuntimeException();
     }
 }
