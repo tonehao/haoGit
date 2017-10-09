@@ -3,6 +3,7 @@ package com.baomidou.springboot.entity;
 import java.util.Date;
 
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 
 /**
  * 用户表
@@ -23,6 +24,7 @@ public class User extends SuperEntity<User> {
      * 这里故意演示注解可无
      */
     @TableField("test_type")
+    @TableLogic
     private Integer testType;
 
     private Date testDate;

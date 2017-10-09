@@ -3,6 +3,8 @@ package com.baomidou.springboot.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.baomidou.mybatisplus.plugins.parser.logicdelete.LogicDeleteDefaultHandler;
+import com.baomidou.mybatisplus.plugins.parser.logicdelete.LogicDeleteSqlParser;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.reflection.MetaObject;
 import org.mybatis.spring.annotation.MapperScan;
@@ -45,6 +47,7 @@ public class MybatisPlusConfig {
          * 这里固定写成住户 1 实际情况你可以从cookie读取，因此数据看不到 【 麻花藤 】 这条记录（ 注意观察 SQL ）<br>
          */
         List<ISqlParser> sqlParserList = new ArrayList<>();
+        LogicDeleteSqlParser logicDeleteSqlParser = new LogicDeleteSqlParser(); //逻辑删除添加
         TenantSqlParser tenantSqlParser = new TenantSqlParser();
         tenantSqlParser.setTenantHandler(new TenantHandler() {
             @Override
@@ -67,7 +70,10 @@ public class MybatisPlusConfig {
                 return false;
             }
         });
+
+
         sqlParserList.add(tenantSqlParser);
+        sqlParserList.add(logicDeleteSqlParser);
         paginationInterceptor.setSqlParserList(sqlParserList);
         paginationInterceptor.setSqlParserFilter(new ISqlParserFilter() {
             @Override
