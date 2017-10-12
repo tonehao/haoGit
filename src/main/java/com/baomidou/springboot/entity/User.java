@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
+import com.baomidou.springboot.entity.enums.AgeEnum;
 
 /**
  * 用户表
@@ -19,7 +20,7 @@ public class User extends SuperEntity<User> {
     /**
      * 年龄
      */
-    private Integer age;
+    private AgeEnum age;
     /**
      * 这里故意演示注解可无
      */
@@ -35,14 +36,14 @@ public class User extends SuperEntity<User> {
     public User() {
     }
 
-    public User(Long id, String name, Integer age, Integer testType) {
+    public User(Long id, String name, AgeEnum age, Integer testType) {
         this.setId(id);
         this.name = name;
         this.age = age;
         this.testType = testType;
     }
 
-    public User(String name, Integer age, Integer testType) {
+    public User(String name, AgeEnum age, Integer testType) {
         this.name = name;
         this.age = age;
         this.testType = testType;
@@ -57,11 +58,11 @@ public class User extends SuperEntity<User> {
         this.name = name;
     }
 
-    public Integer getAge() {
+    public AgeEnum getAge() {
         return this.age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(AgeEnum age) {
         this.age = age;
     }
 
