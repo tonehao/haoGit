@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.plugins.pagination.PageHelper;
 import com.baomidou.springboot.entity.User;
 import com.baomidou.springboot.entity.enums.AgeEnum;
+import com.baomidou.springboot.entity.enums.PhoneEnum;
 import com.baomidou.springboot.service.IUserService;
 
 /**
@@ -45,7 +46,7 @@ public class UserController {
         System.err.println("删除所有：" + user.delete(null));
         user.setRole(111L);
         user.setTestDate(new Date());
-        user.setPhone("13111110000");
+        user.setPhone(PhoneEnum.CMCC);
         user.insert();
         System.err.println("查询插入结果：" + user.selectById().toString());
         user.setName("mybatis-plus-ar");
@@ -67,7 +68,7 @@ public class UserController {
         Long id = user.getId();
         System.err.println("插入一条数据：" + result + ", 插入信息：" + user.toString());
         System.err.println("查询：" + userService.selectById(id).toString());
-        System.err.println("更新一条数据：" + userService.updateById(new User(1L, "三毛", AgeEnum.ONE, 2)));
+        System.err.println("更新一条数据：" + userService.updateById(new User(1L, "三毛", AgeEnum.ONE, 1)));
         for (int i = 0; i < 5; ++i) {
             userService.insert(new User(Long.valueOf(100 + i), "张三" + i, AgeEnum.ONE, 1));
         }
@@ -81,13 +82,16 @@ public class UserController {
      */
     @GetMapping("/test3")
     public User test3() {
-        userService.insertOrUpdate(new User(1L, "王五", AgeEnum.ONE, 3));
+        User user = new User(1L, "王五", AgeEnum.ONE, 1);
+        user.setPhone(PhoneEnum.CT);
+        userService.insertOrUpdate(user);
         return userService.selectById(1L);
     }
 
     @GetMapping("/add")
     public Object addUser() {
         User user = new User("张三", AgeEnum.TWO, 1);
+        user.setPhone(PhoneEnum.CUCC);
         JSONObject result = new JSONObject();
         result.put("result", userService.insert(user));
         return result;

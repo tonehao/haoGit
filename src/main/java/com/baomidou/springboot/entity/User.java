@@ -5,6 +5,7 @@ import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.springboot.entity.enums.AgeEnum;
+import com.baomidou.springboot.entity.enums.PhoneEnum;
 
 /**
  * 用户表
@@ -31,7 +32,7 @@ public class User extends SuperEntity<User> {
     private Date testDate;
 
     private Long role;
-    private String phone;
+    private PhoneEnum phone;
 
     public User() {
     }
@@ -82,11 +83,11 @@ public class User extends SuperEntity<User> {
         this.role = role;
     }
 
-    public String getPhone() {
+    public PhoneEnum getPhone() {
         return this.phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(PhoneEnum phone) {
         this.phone = phone;
     }
 
