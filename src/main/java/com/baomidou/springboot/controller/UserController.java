@@ -90,7 +90,7 @@ public class UserController {
 
     @GetMapping("/add")
     public Object addUser() {
-        User user = new User("张三", AgeEnum.TWO, 1);
+        User user = new User("张三'特殊`符号", AgeEnum.TWO, 1);
         user.setPhone(PhoneEnum.CUCC);
         JSONObject result = new JSONObject();
         result.put("result", userService.insert(user));
