@@ -16,7 +16,7 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
-		<mybatisplus.version>2.1.4</mybatisplus.version>
+		<mybatisplus.version>2.1.6</mybatisplus.version>
 		<HikariCP.version>2.7.2</HikariCP.version>
 		<fastjson.version>1.2.39</fastjson.version>
 	</properties>
