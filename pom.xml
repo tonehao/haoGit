@@ -16,8 +16,8 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
-		<mybatisplus.version>2.1.7-SNAPSHOT</mybatisplus.version>
-		<HikariCP.version>2.7.2</HikariCP.version>
+		<mybatisplus.version>2.1.8</mybatisplus.version>
+		<HikariCP.version>2.4.13</HikariCP.version>
 		<fastjson.version>1.2.39</fastjson.version>
 	</properties>
 
@@ -34,9 +34,9 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.zaxxer</groupId>
-			<artifactId>HikariCP</artifactId>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP-java7</artifactId>
 			<version>${HikariCP.version}</version>
 		</dependency>
 
@@ -57,6 +57,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>2.9.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
