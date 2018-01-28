@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
+import com.baomidou.mybatisplus.mapper.SqlCondition;
 import com.baomidou.springboot.entity.enums.AgeEnum;
 import com.baomidou.springboot.entity.enums.PhoneEnum;
 
@@ -15,8 +16,9 @@ public class User extends SuperEntity<User> {
 
 
     /**
-     * 名称
+     * 名称 condition 注入查询条件【可无】
      */
+    @TableField(condition = SqlCondition.LIKE)
     private String name;
     /**
      * 年龄
@@ -29,6 +31,10 @@ public class User extends SuperEntity<User> {
     @TableLogic
     private Integer testType;
 
+    /**
+     * 注入更新内容【可无】
+     */
+    @TableField(update = "now()")
     private Date testDate;
 
     private Long role;

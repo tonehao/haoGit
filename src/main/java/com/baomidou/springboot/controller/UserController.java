@@ -88,6 +88,19 @@ public class UserController {
         return userService.selectById(1L);
     }
 
+
+    /**
+     * 测试实体注解注入条件 LIKE 查询
+     */
+    @GetMapping("/like")
+    public Object like() {
+        JSONObject result = new JSONObject();
+        User user = new User();
+        user.setName("三");
+        result.put("result", userService.selectList(new EntityWrapper<User>(user)));
+        return result;
+    }
+
     @GetMapping("/add")
     public Object addUser() {
         User user = new User("张三'特殊`符号", AgeEnum.TWO, 1);

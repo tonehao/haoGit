@@ -8,14 +8,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.7.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
-		<mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
+		<mybatis-plus-boot-starter.version>2.1.9</mybatis-plus-boot-starter.version>
 		<mybatisplus.version>2.1.8</mybatisplus.version>
 		<HikariCP.version>2.4.13</HikariCP.version>
 		<fastjson.version>1.2.39</fastjson.version>
@@ -43,13 +43,8 @@
 		<!-- mybatis-plus begin -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
-			<artifactId>mybatisplus-spring-boot-starter</artifactId>
-			<version>${mybatisplus-spring-boot-starter.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus</artifactId>
-			<version>${mybatisplus.version}</version>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatis-plus-boot-starter.version}</version>
 		</dependency>
 		<!-- mybatis-plus end -->
 
