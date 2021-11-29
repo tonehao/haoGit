@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baomidou.mapper.TomOrderMapper">
+
+   <!-- 通用查询映射结果 -->
+   <resultMap id="BaseResultMap" type="com.baomidou.entity.TomOrder">
+      <id column="id_" property="id" />
+      <result column="applicant_name" property="applicantName" />
+      <result column="status" property="status" />
+      <result column="customer_info_id" property="customerInfoId" />
+      <result column="apply_time" property="applyTime" />
+      <result column="contract_no" property="contractNo" />
+      <result column="period_num" property="periodNum" />
+      <result column="seller_id" property="sellerId" />
+      <result column="merchants_id" property="merchantsId" />
+      <result column="store_id" property="storeId" />
+      <result column="product_id" property="productId" />
+      <result column="sm_type" property="smType" />
+      <result column="fund_side_code" property="fundSideCode" />
+      <result column="commodity_name" property="commodityName" />
+      <result column="commodity_price" property="commodityPrice" />
+      <result column="loan_amount" property="loanAmount" />
+      <result column="loan_period" property="loanPeriod" />
+      <result column="loan_date" property="loanDate" />
+      <result column="bank_type" property="bankType" />
+      <result column="customer_bank_card_id" property="customerBankCardId" />
+      <result column="month_amount" property="monthAmount" />
+      <result column="first_pay_amount" property="firstPayAmount" />
+      <result column="success_pay_time" property="successPayTime" />
+      <result column="org_order_no" property="orgOrderNo" />
+      <result column="commit_order_date" property="commitOrderDate" />
+      <result column="merchant_settlement_amount" property="merchantSettlementAmount" />
+      <result column="commit_ip" property="commitIp" />
+      <result column="consultant_phone" property="consultantPhone" />
+      <result column="consultant_name" property="consultantName" />
+      <result column="consultant_group_photo" property="consultantGroupPhoto" />
+      <result column="consumer_photo" property="consumerPhoto" />
+      <result column="ticket_id" property="ticketId" />
+      <result column="is_human_face" property="isHumanFace" />
+      <result column="lat" property="lat" />
+      <result column="lng" property="lng" />
+      <result column="change_date" property="changeDate" />
+      <result column="is_active" property="isActive" />
+      <result column="reason" property="reason" />
+      <result column="remark" property="remark" />
+      <result column="change_by" property="changeBy" />
+      <result column="client_source" property="clientSource" />
+      <result column="create_date" property="createDate" />
+      <result column="tom_order" property="tomOrder" />
+      <result column="can_return" property="canReturn" />
+      <result column="inside_order_status" property="insideOrderStatus" />
+   </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id_ AS id, applicant_name AS applicantName, status, customer_info_id AS customerInfoId, apply_time AS applyTime, contract_no AS contractNo, period_num AS periodNum, seller_id AS sellerId, merchants_id AS merchantsId, store_id AS storeId, product_id AS productId, sm_type AS smType, fund_side_code AS fundSideCode, commodity_name AS commodityName, commodity_price AS commodityPrice, loan_amount AS loanAmount, loan_period AS loanPeriod, loan_date AS loanDate, bank_type AS bankType, customer_bank_card_id AS customerBankCardId, month_amount AS monthAmount, first_pay_amount AS firstPayAmount, success_pay_time AS successPayTime, org_order_no AS orgOrderNo, commit_order_date AS commitOrderDate, merchant_settlement_amount AS merchantSettlementAmount, commit_ip AS commitIp, consultant_phone AS consultantPhone, consultant_name AS consultantName, consultant_group_photo AS consultantGroupPhoto, consumer_photo AS consumerPhoto, ticket_id AS ticketId, is_human_face AS isHumanFace, lat, lng, change_date AS changeDate, is_active AS isActive, reason, remark, change_by AS changeBy, client_source AS clientSource, create_date AS createDate, tom_order AS tomOrder, can_return AS canReturn, inside_order_status AS insideOrderStatus
+    </sql>
+</mapper>

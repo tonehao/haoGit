@@ -1,0 +1,32 @@
+package ${package.Service};
+
+import com.baomidou.mybatisplus.plugins.Page;
+import ${package.Entity}.${entity};
+import ${superServiceClassPackage};
+import com.baomidou.mybatisplus.plugins.pagination.Pagination;
+
+import java.util.List;
+
+/**
+ * <p>
+ * $!{table.comment} 服务类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
+
+    /**
+     *  分页查询
+     * @param bootStrapTable
+     * @param ${table.entityPath}
+     * @return
+     */
+    Page<${entity}> selectPage(Pagination page,${entity} ${table.entityPath});
+
+
+
+
+    List<${entity}> selectList(${entity} ${table.entityPath});
+}

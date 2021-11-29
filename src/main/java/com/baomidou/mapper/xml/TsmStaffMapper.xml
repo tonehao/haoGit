@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baomidou.mapper.TsmStaffMapper">
+
+   <!-- 通用查询映射结果 -->
+   <resultMap id="BaseResultMap" type="com.baomidou.entity.TsmStaff">
+      <id column="id_" property="id" />
+      <result column="account" property="account" />
+      <result column="password" property="password" />
+      <result column="user_name" property="userName" />
+      <result column="sex" property="sex" />
+      <result column="id_card" property="idCard" />
+      <result column="role_id" property="roleId" />
+      <result column="phone" property="phone" />
+      <result column="status" property="status" />
+      <result column="province" property="province" />
+      <result column="city" property="city" />
+      <result column="entry_date" property="entryDate" />
+      <result column="leave_date" property="leaveDate" />
+      <result column="email" property="email" />
+      <result column="leader_id" property="leaderId" />
+      <result column="is_admin" property="isAdmin" />
+      <result column="change_date" property="changeDate" />
+      <result column="change_by" property="changeBy" />
+      <result column="create_date" property="createDate" />
+      <result column="create_by" property="createBy" />
+      <result column="is_active" property="isActive" />
+      <result column="category" property="category" />
+      <result column="is_setting_role" property="isSettingRole" />
+   </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id_ AS id, account, password, user_name AS userName, sex, id_card AS idCard, role_id AS roleId, phone, status, province, city, entry_date AS entryDate, leave_date AS leaveDate, email, leader_id AS leaderId, is_admin AS isAdmin, change_date AS changeDate, change_by AS changeBy, create_date AS createDate, create_by AS createBy, is_active AS isActive, category, is_setting_role AS isSettingRole
+    </sql>
+</mapper>
